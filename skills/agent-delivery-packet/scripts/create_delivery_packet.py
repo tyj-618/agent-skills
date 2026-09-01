@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+import re
 
 
 TEMPLATES = {
@@ -19,14 +20,18 @@ TEMPLATES = {
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Create an empty Agent Delivery Packet.")
-    parser.add_argument("target", type=Path, help="New empty packet directory")
-    parser.add_argument("--task-slug", default="unknown-task")
+    parser.add_argument("artifacts_dir", type=Path, help="Parent directory for delivery packets")
+    parser.add_argument("--task-slug", required=True, help="Unique task folder name, for example session-002-json-output")
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
-    target = args.target
+    if not re.fullmatch(r"[a-z0-9][a-z0-9._-]*", args.task_slug):
+        print("Task slug must use lowercase letters, digits, dots, hyphens, or underscores.")
+        return 1
+
+    target = args.artifacts_dir / args.task_slug
     if target.exists() and any(target.iterdir()):
         print(f"Refusing to overwrite non-empty directory: {target}")
         return 1

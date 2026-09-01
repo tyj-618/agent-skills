@@ -46,10 +46,10 @@ metadata.json        # Agent / 工具 / 环境信息，不包含密钥
 
 ## 可选脚手架命令
 
-以下命令会创建必需的空文件；若目标目录非空则拒绝覆盖：
+以下命令接收统一的 `artifacts` 根目录和必填的唯一任务标识，并创建 `artifacts/<task-slug>/`；若该任务目录非空则拒绝覆盖：
 
 ```text
-python scripts/create_delivery_packet.py artifacts/<task-slug> --task-slug <task-slug>
+python scripts/create_delivery_packet.py artifacts --task-slug <task-slug>
 ```
 
 脚手架只是起点。交付前必须将每个占位内容替换成此次任务的真实事实。

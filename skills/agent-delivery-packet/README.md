@@ -46,10 +46,10 @@ Suggested prompt:
 
 ## Optional scaffold command
 
-The script creates the required blank files and refuses to overwrite a non-empty packet directory:
+The script takes the shared artifacts root and a required unique task slug, then creates `artifacts/<task-slug>/`. It refuses to overwrite a non-empty packet directory:
 
 ```text
-python scripts/create_delivery_packet.py artifacts/<task-slug> --task-slug <task-slug>
+python scripts/create_delivery_packet.py artifacts --task-slug <task-slug>
 ```
 
 The scaffold is only a starting point. Replace every placeholder with task-specific facts before delivery.

@@ -40,7 +40,7 @@ If the repository cannot produce a useful diff, explain why in `changes.diff`, l
 2. Preserve the original task, then collect factual evidence from the working tree and completed verification.
 3. Write the report as a concise index to evidence, not a marketing summary.
 4. Record failed checks, skipped checks, environment constraints, and known risks explicitly.
-5. Run `scripts/create_delivery_packet.py` only when a blank packet scaffold is useful. Fill every required file with task-specific facts; placeholders are not a delivery.
+5. Run `scripts/create_delivery_packet.py artifacts --task-slug <task-slug>` only when a blank packet scaffold is useful. It creates `artifacts/<task-slug>/`; never pass a shared task directory as the final destination. Fill every required file with task-specific facts; placeholders are not a delivery.
 6. Before delivery, check that every reported test has a corresponding command and result, that the diff does not contain secrets, and that `review-request.md` asks focused questions.
 
 ## Completion standard
