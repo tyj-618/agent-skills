@@ -60,4 +60,4 @@ python-code-explainer/
 
 ## License
 
-No license has been selected for this skill yet. Add one before distributing it publicly.
+MIT — see the repository [LICENSE](../../LICENSE).

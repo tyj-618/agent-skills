@@ -88,4 +88,4 @@ agent-delivery-packet/
 
 ## 许可证
 
-该 Skill 暂未选择许可证。公开分发前请补充许可证。
+MIT，见仓库根目录 [LICENSE](../../LICENSE)。
